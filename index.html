@@ -1,25 +1,26 @@
+
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Cartas Pokémon</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Cartas Pokémon</h1>
+  <!-- <div class="filters">
+    <input type="text" id="searchName" placeholder="Nome do Pokemon">
+  </div> -->
+  <div class="search-container">
+    <input type="text" id="typeSearch" placeholder="Buscar por tipo...">
+    <button id="searchBtn">🔍</button>
+</div>
 
-  <label for="tipo-select">Filtrar por tipo:</label>
-  <select id="tipo-select">
-    <option value="todos">Todos</option>
-    <option value="electric">⚡ Elétrico</option>
-    <option value="fire">🔥 Fogo</option>
-    <option value="water">💧 Água</option>
-    <option value="grass">🍃 Planta</option>
-    <option value="normal">🐾 Normal</option>
-  </select>
-
-  <div id="cartas-container"></div>
-
-  <script src="script.js"></script>
+    <ul class="pokemons"></ul>
+    <div>
+        <button id="volta">Voltar</button>
+        <button id="Proximo">Proximo</button>
+    </div>
+    <script src="./script.js"></script>
 </body>
 </html>
