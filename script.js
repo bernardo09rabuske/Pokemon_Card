@@ -1,17 +1,40 @@
+import {colors} from "./colors.js"
 let offset = 0
-//const searchInput = document.getElementById("searchName")
-const colors = {
-    normal : "#f6f5f2",
-    poison : "#da05ff",
-    grass : "#40ff00",
-    flying : "#98e5d3",
-    fire : "#ff9900",
-    dark : "#303030",
-    steel :"#949494",
-    eletric : "#ffe600",
-    water : "#0033ff",
-    bug : "#345b32"
+function montarHeader(){
+    const header = document.querySelector("header")
+    const user = localStorage.getItem("logado")
+    if(user){
+        header.insertAdjacentHTML("beforeend",`
+            <h1>My Pokémon</h1>
+        <nav>
+            <a id="logout" href="/">Sair</a>
+            <img src="./baixados.jpg" alt="">
+        </nav>
+
+            `)
+            const logout = document.querySelector("#logout")
+            logout.addEventListener("click",()=>{
+                localStorage.clear()
+                header.innerHTML = ""
+                header.insertAdjacentHTML("beforeend",`
+                    <a href="/login/">Login</a>
+                    <a href="/cadastro/">Cadastrar-se</a>
+                    
+                    `)
+            })
+    }else {
+        header.insertAdjacentHTML("beforeend",`
+            <h1> My Pokémons </h1>
+        <nav>
+            <a href="/login/">Login</a>
+            <a href="/cadastro/">Cadastrar-se</a>
+            <img src="./pokemon/img/pokebola.jpg" alt="pokebola">
+        </nav>
+            
+            `)
+    }
 }
+montarHeader()
 async function initPokedex(){
     const ul = document.querySelector(".pokemons")
     const res = await fetch(`https://pokeapi.co/api/v2/pokemon`,{
@@ -37,11 +60,11 @@ async function initPokedex(){
                 </div>
                 <img src="${dados.sprites.other['official-artwork'].front_default}" alt="${dados.name}">
                 <div class="info">
-                    <p><strong>Type:</strong> ${dados.types.map(t => t.type.name).join(', ')}</p>
-                    <p><strong>Attack:</strong> ${dados.moves[0]?.move.name || 'N/A'}</p>
-                    <p><strong>Power:</strong> ${dados.stats[1].base_stat}</p>
+                    <p><strong>Tipo:</strong> ${dados.types.map(t => t.type.name).join(', ')}</p>
+                    <p><strong>Ataque:</strong> ${dados.moves[0]?.move.name || 'N/A'}</p>
+                    <p><strong>Poder:</strong> ${dados.stats[1].base_stat}</p>
                 </div>
-                <button class="add-pokedex">Adicionar à Pokédex</button>
+                <button class="add-pokedex">Mais Detalhes</button>
             </li>
         `)
         
@@ -113,7 +136,7 @@ async function nextPage(){
                     <p><strong>Attack:</strong> ${dados.moves[0]?.move.name || 'N/A'}</p>
                     <p><strong>Power:</strong> ${dados.stats[1].base_stat}</p>
                 </div>
-                <button class="add-pokedex">Adicionar à Pokédex</button>
+                <button class="add-pokedex">Mais Detalhes</button>
             </li>
         `)
         
@@ -132,11 +155,6 @@ document.addEventListener("click", e => {
         const pokedex = JSON.parse(localStorage.getItem("pokedex")) || [];
         pokedex.push({ name, hp, type, attack, power, imgSrc });
         localStorage.setItem("pokedex", JSON.stringify(pokedex));
-        // alert(`${name} adicionado à Pokédex!`);
-    }
-});
-document.querySelector("#typeSearch").addEventListener("keypress", (e) => {
-    if (e.key === "Enter") {
-        document.querySelector("#searchBtn").click();
+       
     }
 });

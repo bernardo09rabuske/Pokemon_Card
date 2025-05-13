@@ -1,38 +1,35 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokémon</title>
-   <link rel="stylesheet" href="style.css">
-   <style>
-#particles-js {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-   </style>
+    <title>Login</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
   
-    <header>
-        <div id="particles-js"></div>
-    </header>
-    <ul class="pokemons"></ul>
-    <div class="paginacao">
-        <button id="volta">⏮ Anterior</button>
-        <!-- <span>Página 1 de 1</span> -->
-        <button id="proximo">Próxima ⏭</button>
-    </div>
+    <form>
+        <h1>Login</h1>
+        <fieldset>
+            <label for="email">E-mail</label>
+            <input type="email" id="email" placeholder="Digite seu e-mail">
+        </fieldset>
+        <fieldset>
+            <label for="pass">Senha</label>
+            <input type="password" id="pass" placeholder="Digite sua senha">
+        </fieldset>
+        <button type="submit">Login</button>
+        <nav>
+            <a href="/cadastro/">Cadastrar-se</a>
+        </nav>
+    </form>
 
-    <!-- <div class="pokemon-grid" id="pokemonGrid">Carregando...</div> -->
+    <div id="particles-js"></div>
 
     <script src="./script.js"></script>
 </body>
-
 </html>
+
 <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 <script>
   particlesJS("particles-js", {
