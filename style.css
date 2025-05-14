@@ -149,8 +149,8 @@ li.borda img {
     transition: background-color 0.3s ease;
 }
 .search-container button:hover {
-    background-color: #da05ff;
-    color: #9177aa;
+    background-color: #ff0505;
+    color: #5700a9;
 }
 .paginacao {
     display: flex;

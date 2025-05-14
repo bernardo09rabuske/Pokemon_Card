@@ -13,7 +13,7 @@ function fazerLogin(){
         //console.log(email.value,pass.value)
         const res = await fetch(`http://localhost:3001/login`,{
             method:"POST",
-            body : JSON.stringify(obj),
+            body : JSON.stringify(user),
             headers: {
                 'Content-Type':"application/json; charset=utf-8"
             }
@@ -26,14 +26,16 @@ function fazerLogin(){
                     <p>Login efetuado com sucesso!</p>
                 </div>
                 `)
-            setTimeout(()=>{
+            setTimeout(async()=>{
+                const response = await res.json()
+                console.log(response)
                 localStorage.setItem("Logado", true)
+                localStorage.setItem("userId",response.user.id)
                 console.log(res)
                 location.href = "/"
                 
             },3000)
-            const response = await res.json()
-            console.log(response)
+           
             
         }else {
             console.log("else")

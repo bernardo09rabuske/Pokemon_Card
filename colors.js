@@ -14,5 +14,6 @@ export const colors = {
     fairy : "#fa64d0",
     fighting :"#ff6f00",
     rock : "#aa7777",
-    ghost : "#9177aa"
+    ghost : "#9177aa",
+    psychic : "#5700a9"
 }

@@ -2,7 +2,7 @@ import {colors} from "./colors.js"
 let offset = 0
 function montarHeader(){
     const header = document.querySelector("header")
-    const user = localStorage.getItem("logado")
+    const user = localStorage.getItem("Logado")
     if(user){
         header.insertAdjacentHTML("beforeend",`
             <h1>My Pokémon</h1>

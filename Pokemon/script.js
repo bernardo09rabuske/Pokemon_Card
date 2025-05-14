@@ -31,20 +31,7 @@ function getPokemonLocal(){
     })
 }
 getPokemonLocal()
-// const colors = {
-//     normal : "#f6f5f2",
-//     poison : "#da05ff",
-//     grass : "#40ff00",
-//     flying : "#98e5d3",
-//     fire : "#ff9900",
-//     dark : "#303030",
-//     steel :"#949494",
-//     eletric : "#ffe600",
-//     water : "#0033ff",
-//     bug : "#345b32",
-//     dragon : "#3a6173"
-    
-// }
+
 function getAbilities(pokemon){
     const divAbilities = document.querySelector(".abilities")
     pokemon.abilities.forEach((item)=>{

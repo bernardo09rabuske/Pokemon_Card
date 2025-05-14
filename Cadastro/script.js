@@ -5,10 +5,10 @@ function fazerCadastro(){
         //console.log("submit")
         const email = document.querySelector("#email")
         const pass = document.querySelector("#pass")
-        const user = { 
-            email:email.value,
-            password:pass.value
-        }
+        // const user = { 
+        //     email:email.value,
+        //     password:pass.value
+        // }
         //console.log(email.value,pass.value)
         if (email.value == "" || pass.value == ""){
             document.body.insertAdjacentHTML("beforeend",`
